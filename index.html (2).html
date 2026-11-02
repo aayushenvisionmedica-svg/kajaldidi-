@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Kajal Didi ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:22px;
+font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(135deg,#ffd6e7,#e7d8ff,#ffe8d2);color:#56334e;overflow-x:hidden}
+.card{width:min(100%,520px);text-align:center;background:rgba(255,255,255,.82);padding:30px 24px;border-radius:28px;
+box-shadow:0 18px 55px rgba(116,66,111,.18);position:relative;z-index:2;border:1px solid rgba(255,255,255,.8)}
+.photo-wrap{width:190px;height:190px;margin:0 auto 18px;border-radius:50%;padding:6px;background:linear-gradient(135deg,#ff85b5,#a98bff)}
+.photo{width:100%;height:100%;border-radius:50%;object-fit:cover;background:#fff0f6;display:flex;align-items:center;justify-content:center;color:#a45c82;font-size:14px}
+h1{font-size:clamp(29px,7vw,42px);margin:8px 0;color:#b33d79}
+.subtitle{font-size:17px;margin:0 0 18px}
+.tag{display:inline-block;background:#fff0f7;padding:8px 15px;border-radius:30px;color:#a13d70;font-weight:700}
+button{border:0;border-radius:30px;padding:14px 24px;background:linear-gradient(135deg,#f06aa5,#9b78e8);color:white;
+font-size:16px;font-weight:700;cursor:pointer;box-shadow:0 8px 20px #d99ac5;margin-top:12px}
+button:active{transform:scale(.97)}
+.message{display:none;margin-top:22px;padding:20px;border-radius:20px;background:#fff5fa;line-height:1.75;text-align:left;font-size:16px}
+.message.show{display:block;animation:pop .5s ease}
+.small{font-size:13px;color:#9b6c88;margin-top:20px}
+.heart{position:fixed;bottom:-30px;z-index:1;animation:float 7s linear infinite;opacity:.7}
+@keyframes float{to{transform:translateY(-115vh) rotate(25deg);opacity:0}}
+@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
+.pulse{display:inline-block;animation:pulse 1.2s infinite}
+@keyframes pulse{50%{transform:scale(1.25)}}
+.photo-help{font-size:12px;color:#9b6c88;margin:8px 0 0}
+input{display:none}
+.photo-label{display:inline-block;margin-top:10px;font-size:12px;color:#9b6c88;text-decoration:underline;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="photo-wrap"><img id="sisterPhoto" class="photo" alt="Kajal Didi ki photo" src="" style="display:none">
+    <div id="photoPlaceholder" class="photo">Kajal Didi ki photo ❤️</div></div>
+  <label class="photo-label" for="photoInput">Apni photo yahan add karein</label>
+  <input id="photoInput" type="file" accept="image/*">
+  <div class="tag">Meri Pyaari Badi Behan</div>
+  <h1>Happy Birthday<br>Kajal Didi! 🎂</h1>
+  <p class="subtitle">Meri favourite partner-in-fights… aur meri jaan bhi! <span class="pulse">❤️</span></p>
+  <p>Ek chhota sa surprise hai, madam. Button dabao! 😜</p>
+  <button id="surpriseBtn">Tap Karo — Surprise Hai! 💝</button>
+  <div class="message" id="message">
+    <h3 style="text-align:center;color:#b33d79;margin-top:0">Meri Pyaari Kajal Didi ❤️</h3>
+    Didi, hum dono ki ladayi toh kabhi khatam hi nahi hoti. Main tumhe chidhata rehta hoon, tum gussa ho jaati ho… kabhi-kabhi toh ro bhi deti ho. 😂❤️<br><br>
+    Lekin sach bataun, tumhe pareshan karna bhi isliye achha lagta hai kyunki tum meri sabse pyaari badi behan ho. Tumse ladta hoon, tumhari taang kheenchta hoon, par tumse bahut bahut pyaar karta hoon.<br><br>
+    Shaadi ke baad tum apni duniya mein busy ho gayi ho, lekin mere liye tum hamesha wahi meri Kajal Didi rahogi. Aur haan… tumhari chhoti si gudiya ko thoda darana aur tum dono ko chidhana mera janmasiddh adhikaar hai! 😁<br><br>
+    Hamesha khush rehna, muskurati rehna. Bhagwan tumhe dher saari khushiyan, pyaar aur sehat de.<br><br>
+    <strong>Happy Birthday meri pyaari Kajal Didi. I love you loads! ❤️</strong>
+    <p style="text-align:center;font-size:24px;margin-bottom:0">🎂 🥳 💗 🧿</p>
+  </div>
+  <div class="small">Made with lots of love, laughter & a little extra teasing. ❤️</div>
+</div>
+<script>
+const input=document.getElementById('photoInput');
+input.addEventListener('change',e=>{
+  const file=e.target.files[0]; if(!file)return;
+  const reader=new FileReader();
+  reader.onload=ev=>{const img=document.getElementById('sisterPhoto');img.src=ev.target.result;img.style.display='block';document.getElementById('photoPlaceholder').style.display='none';};
+  reader.readAsDataURL(file);
+});
+document.getElementById('surpriseBtn').addEventListener('click',()=>{
+  document.getElementById('message').classList.add('show');
+  document.getElementById('surpriseBtn').textContent='Surprise Unlocked! ❤️';
+  for(let i=0;i<28;i++){const h=document.createElement('div');h.className='heart';h.textContent=['💗','💖','💕','✨','❤️'][Math.floor(Math.random()*5)];
+    h.style.left=Math.random()*100+'vw';h.style.animationDelay=Math.random()*2+'s';h.style.fontSize=(18+Math.random()*18)+'px';document.body.appendChild(h);setTimeout(()=>h.remove(),8000);}
+});
+</script>
+</body>
+</html>
